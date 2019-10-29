@@ -1,10 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>hello</title>
-</head>
-<body>
-	<p>hello</p>
-</body>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <link rel="stylesheet" href="scss/todo.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>todo-list</title>
+ </head>
+ <body>
+  
+<h1>TODOList</h1>
+  <hr>
+
+<!-- second block - search line -->
+
+<div class="search-line">
+   <div class='search-in'>
+   	  <i class="fa fa-search" aria-hidden="true"></i>
+      <input  id="valueSearch" type="search" value="" placeholder="search by title" onkeypress="isSearchFunc()">
+   </div>
+
+    <div class="search-state"> 
+       <select id="searchSelectState" name='All' onchange="isSearchFunc()">
+        <option  selected="true" value='all'>all</option>
+         <option value='open'>open</option>
+         <option value='done'>done</option>
+       </select>
+    </div>
+
+  <div class="search-priority" > 
+  	<select id="searchSelectPriority" onchange="isSearchFunc()">
+        <option  selected="true">all</option>
+  	       <option value='High'>High</option>
+           <option value='Normal'>Normal</option>
+           <option value='Low'>Low</option>
+  	</select>
+  </div>  
+   
+   <div>
+      	  <button onclick="isCreate()">Create</button>
+  </div>
+</div>
+
+<!-- second block create -->
+
+<div class="create">
+  <div>
+    <label for="Title">Title:</label><br/>
+    <input id="Title" placeholder="Title">
+  </div>
+
+
+ <div>
+    <label for="Description">Description:</label><br/>
+    <textarea id="Description" placeholder="Description"></textarea> 
+    </div>
+
+   <div> 
+      <label for="Priority">Priority:</label><br/>
+      <select id='Priority'>
+          <!-- <option  selected="true" disabled="disabled">Priority</option> -->
+             <option value='High'>High</option>
+             <option value='Normal'>Normal</option>
+             <option value='Low'>Low</option>
+      </select>
+    </div> 
+
+  <div class="buttons">   
+    <div>
+            <button onclick="isButtonCancel()">Cancel</button>
+    </div>
+
+    <div>
+            <button onclick="isButtonSave()">Save</button>
+      </div>
+  </div>
+    
+
+</div>
+
+<!-- third block note -->
+
+<div class="NoteList">
+    <div class="note" name='list'>
+       <div class="NoteContent">
+        <input type="checkbox" class='NoteCheck' disabled="disabled" />
+              
+               <div class='note-name'></div>
+               <div class='note-description'></div>
+               <div class='note-priority'></div>
+                  
+                  <div class='note-state'>
+                        <select  class='NoteStateSelect' onchange="ChangeState(this)">
+                           <option  selected="true" disabled="disabled">...</option>
+                           <option value='done'>done</option>
+                           <option value='edit'>edit</option>
+                           <option value='delete'>delete</option>
+                        </select>
+                  </div>
+        </div>
+        
+
+    </div>
+</div>
+
+<script src="js/todo.js"></script>
+
+ </body>
 </html>
